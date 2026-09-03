@@ -1,0 +1,55 @@
+aside{
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+aside a{
+    color: black;
+    margin-bottom: 30px;
+}
+
+aside p{ 
+    margin: 0;
+}
+
+/* aside a:hover hereda el underline de common.css */
+aside a:hover {
+    text-decoration: none; /* ← agregar para que no aparezca subrayado */
+}
+
+/* Estilos para el botón de WhatsApp flotante */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 56px;
+    height: 56px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    cursor: grab;
+    transition: box-shadow 0.2s;
+    user-select: none;
+}
+
+.whatsapp-flotante:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-flotante.arrastrando {
+    cursor: grabbing;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    transition: none;   /* ← sin transición mientras arrastra */
+}
+
+#modal-reclamo {
+    font-family: 'Montserrat';
+    font-weight: 400; 
+}

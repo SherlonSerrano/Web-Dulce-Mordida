@@ -1,0 +1,30 @@
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 12px;
+    padding: 15px;
+}
+
+.icon-footer{
+    font-size: 14px;
+}
+
+.icon-footer img {
+    filter: brightness(0) invert(1);
+} /* Aplica el filtro a las imágenes dentro de .icon-footer para que se vean blancas */
+
+.icon-footer a {
+    text-decoration: none;
+    color: inherit; /* mantiene el color del texto original */
+}
+
+.icon-footer a:hover img {
+    opacity: 0.8; /* efecto sutil al pasar el cursor */
+}
+
+.icon-footer a:hover p {
+    text-decoration: underline; /* opcional */
+}

@@ -1,0 +1,126 @@
+<!-- Aside con carrito, cuenta, favoritos y libro de reclamaciones -->
+<aside class="row"> 
+    <a href="#" class="col-xs-3 col-s-3 col-m-3 col-l-12" onclick="abrirCarrito(); return false;">
+        <img alt="Ícono del carrito" src="img/aside/cart-shopping-solid-full.svg" width="40"/>
+        <p id="carrito-contador">0 artículos en el carrito</p>
+    </a>
+
+    <a href="#" class="col-xs-3 col-s-3 col-m-3 col-l-12">
+        <img alt="Ícono de cuenta" src="img/aside/circle-user-solid-full.svg" width="40"/>
+        <p>Mi cuenta</p>
+    </a>    
+
+    <a href="#" class="col-xs-3 col-s-3 col-m-3 col-l-12" onclick="abrirFavoritos(); return false;">
+        <img alt="Ícono de favoritos" src="img/aside/heart-solid-full.svg" width="40"/>
+        <p id="favoritos-contador">Mis favoritos</p>
+    </a>
+
+    <a href="#" class="col-xs-3 col-s-3 col-m-3 col-l-12" onclick="abrirReclamo(); return false;">
+        <img alt="Ícono de libro de reclamaciones" src="img/aside/book-open-solid-full.svg" width="40"/>
+        <p>Libro de reclamaciones</p>
+    </a>
+</aside>
+
+<!-- Panel de favoritos -->
+<div id="panel-favoritos" style="display:none; position:fixed; top:0; right:0; width:340px; height:100%; background:white; z-index:1100; box-shadow:-4px 0 20px rgba(0,0,0,0.15); flex-direction:column;">
+
+    <div style="padding:20px 20px 12px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+        <h3 style="margin:0; font-weight:normal; font-size:18px;">❤️ Mis favoritos</h3>
+        <button onclick="cerrarFavoritos()" style="background:none; border:none; font-size:22px; cursor:pointer;">✕</button>
+    </div>
+
+    <div id="favoritos-lista" style="flex:1; overflow-y:auto; padding:16px 20px;"></div>
+
+</div>
+
+<div id="favoritos-overlay" onclick="cerrarFavoritos()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); z-index:1099;"></div>
+
+<!-- Panel lateral del carrito -->
+<div id="panel-carrito" style="display:none; position:fixed; top:0; right:0; width:340px; height:100%; background:white; z-index:1100; box-shadow:-4px 0 20px rgba(0,0,0,0.15); flex-direction:column;">
+    
+    <div style="padding:20px 20px 12px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+        <h3 style="margin:0; font-weight:normal; font-size:18px;">🛒 Mi carrito</h3>
+        <button onclick="cerrarCarrito()" style="background:none; border:none; font-size:22px; cursor:pointer;">✕</button>
+    </div>
+
+    <!-- Lista de productos -->
+    <div id="carrito-lista" style="flex:1; overflow-y:auto; padding:16px 20px;"></div>
+
+    <!-- Resumen y botón -->
+    <div style="padding:16px 20px; border-top:1px solid #eee;">
+        <div style="display:flex; justify-content:space-between; font-size:16px; margin-bottom:16px;">
+            <span>Total:</span>
+            <strong id="carrito-total">S/0</strong>
+        </div>
+        <a id="carrito-btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer"
+           style="display:block; width:100%; padding:12px; background:#25D366; color:white; text-align:center; border-radius:6px; text-decoration:none; font-size:15px; box-sizing:border-box;">
+            💬 Enviar pedido por WhatsApp
+        </a>
+        <button onclick="vaciarCarrito()" style="width:100%; padding:10px; margin-top:10px; background:none; border:1px solid #ddd; border-radius:6px; font-size:14px; color:#888; cursor:pointer;">
+            Vaciar carrito
+        </button>
+    </div>
+
+</div>
+
+<!-- Fondo oscuro detrás del panel -->
+<div id="carrito-overlay" onclick="cerrarCarrito()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); z-index:1099;"></div>
+
+<!-- Modal de reclamo -->
+<div id="modal-reclamo" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
+    <div style="background:white; max-width:500px; margin:80px auto; padding:30px; border-radius:8px; position:relative;">
+
+        <button onclick="cerrarReclamo()" style="position:absolute; top:10px; right:15px; background:none; border:none; font-size:20px; cursor:pointer;">✕</button>
+
+        <h2 style="margin-top:0;">Libro de Reclamaciones</h2>
+
+        <form id="form-reclamo" action="https://formspree.io/f/mvzyjpyb" method="POST">
+            <input type="hidden" name="_replyto" value="administracion@dulcemordida.com"/>
+
+            <label>Nombre completo</label>
+            <input type="text" name="nombre" placeholder="Tu nombre" style="width:100%; font-family: 'Newsreader'; font-style: italic; padding:8px; margin:5px 0 15px; border:1px solid #ccc; border-radius:4px;" required/>
+
+            <label>Correo electrónico</label>
+            <input type="email" name="email" placeholder="Tu correo" style="width:100%; font-family: 'Newsreader'; font-style: italic; padding:8px; margin:5px 0 15px; border:1px solid #ccc; border-radius:4px;" required/>
+
+            <label>Teléfono</label>
+            <input type="tel" name="telefono" placeholder="Tu teléfono" style="width:100%; font-family: 'Newsreader'; font-style: italic; padding:8px; margin:5px 0 15px; border:1px solid #ccc; border-radius:4px;"/>
+
+            <label>Tipo</label>
+            <select name="tipo" style="width:100%; font-family: 'Newsreader'; font-style: italic; padding:8px; margin:5px 0 15px; border:1px solid #ccc; border-radius:4px;" required>
+                <option value="">Selecciona...</option>
+                <option value="queja">Queja</option>
+                <option value="reclamo">Reclamo</option>
+            </select>
+
+            <label>Descripción</label>
+            <textarea name="descripcion" placeholder="Describe tu reclamo o queja..." rows="4" style="width:100%; font-family: 'Newsreader'; font-style: italic; padding:8px; margin:5px 0 15px; border:1px solid #ccc; border-radius:4px; resize:vertical;" required></textarea>
+
+            <button type="submit" style="width:100%; padding:10px; background:#8B0000; color:white; border:none; border-radius:4px; font-size:16px; cursor:pointer;">Enviar</button>
+        </form>
+
+        <!-- Pop-up código de seguimiento — DENTRO de la caja blanca -->
+        <div id="popup-codigo" style="display:none; position:absolute; inset:0; background:rgba(0,0,0,0.55); border-radius:8px; z-index:10; align-items:center; justify-content:center;">
+            <div style="background:white; border-radius:12px; padding:28px 24px 24px; width:290px; text-align:center;">
+
+                <div style="width:52px; height:52px; border-radius:50%; background:#EAF3DE; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:26px;">✅</div>
+
+                <p style="font-size:16px; font-weight:500; margin:0 0 4px;">¡Reclamo enviado!</p>
+                <p style="font-size:13px; color:#666; margin:0 0 8px;">Tu código de seguimiento es:</p>
+
+                <div style="background:#f5f5f5; border:1px solid #ddd; border-radius:8px; padding:12px 16px; margin:0 0 10px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                    <span id="codigo-generado" style="font-family:monospace; font-size:18px; font-weight:600; letter-spacing:2px;"></span>
+                    <button onclick="copiarCodigoReclamo()" title="Copiar código" style="background:none; border:none; cursor:pointer; font-size:18px; padding:4px;">📋</button>
+                </div>
+
+                <p style="font-size:12px; color:#888; margin:0 0 16px;">Guárdalo para hacer seguimiento de tu caso.</p>
+
+                <button onclick="cerrarPopupCodigo()" style="width:100%; padding:10px; background:#8B0000; color:white; border:none; border-radius:6px; font-size:15px; cursor:pointer;">Entendido</button>
+
+                <p id="msg-copiado" style="display:none; color:green; font-size:12px; margin-top:8px;">✓ Código copiado al portapapeles</p>
+            </div>
+        </div>
+        <!-- fin popup -->
+
+    </div>
+</div>

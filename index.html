@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce Mordida</title>
+    <meta name="description" content="Pastelería fina en Lima. Tortas artesanales, temáticas, bowls y bocaditos premium con delivery a domicilio. Haz tu pedido fácil por WhatsApp. 🍰"/>
+    <link rel="icon" href="img/logos/favicon.ico"/>
+    <link rel="icon" type="image/png" sizes="16x16"   href="img/logos/favicon-16.png"/>
+    <link rel="icon" type="image/png" sizes="32x32"   href="img/logos/favicon-32.png"/>
+    <link rel="apple-touch-icon"      sizes="180x180"  href="img/logos/favicon-180.png"/>
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/logos/favicon-192.png"/>
+    <link rel="icon" type="image/png" sizes="512x512"  href="img/logos/favicon-512.png"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+<!-- Meta tags para redes sociales (Open Graph) -->   
+    <meta property="og:title" content="Dulce Mordida | Pastelería Fina en Lima" />
+<!-- Descripción atractiva para redes sociales -->
+    <meta property="og:description" content="Disfruta de las mejores tortas artesanales, temáticas, bowls y bocaditos premium. Haz tu pedido online con delivery en Lima. 🍰✨" />
+<!-- URL canónica de tu sitio web -->
+    <meta property="og:url" content="https://www.dulcemordida.com" /> 
+    <link rel="canonical" href="https://www.dulcemordida.com"/>
+<!-- Imagen atractiva para compartir en redes sociales (debe ser de alta calidad y representar bien tu marca) -->
+    <meta property="og:image" content="https://www.dulcemordida.com/img/principal/fondo2.webp" />
+<!-- Especificaciones de la imagen para Open Graph -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/webp" />
+<!-- Tipo de contenido para Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dulce Mordida" />
+<!-- ============================================
+     SCHEMA.ORG — DATOS ESTRUCTURADOS PARA GOOGLE
+     Permite que Google muestre información rica en
+     búsquedas: nombre, horario, teléfono, ubicación.
+     
+     CÓMO VALIDAR:
+     https://search.google.com/test/rich-results
+     Pegar la URL del sitio o el código directamente.
+
+     CAMPOS A MANTENER ACTUALIZADOS:
+     - opens / closes: horario de atención real
+     - priceRange: rango de precios actual
+     - telephone: número de WhatsApp
+     - sameAs: si cambian las redes sociales
+     ============================================ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "Dulce Mordida",
+        "url": "https://www.dulcemordida.com",
+        "logo": "https://www.dulcemordida.com/img/logos/DulceMordida_1.png",
+        "image": "https://www.dulcemordida.com/img/principal/fondo2.webp",
+        "description": "Pastelería fina en Lima. Tortas artesanales, temáticas, bowls y bocaditos premium con delivery a domicilio.",
+        "telephone": "+51954301376",
+        "priceRange": "S/19 - S/200",
+        "servesCuisine": "Pastelería",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lima",
+            "addressCountry": "PE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -12.0869582,
+            "longitude": -76.9757827
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday","Tuesday","Wednesday",
+                "Thursday","Friday","Saturday","Sunday"
+            ],
+            "opens": "11:00",
+            "closes": "20:30"
+        },
+        "sameAs": [
+            "https://www.instagram.com/DulceMordida",
+            "https://www.tiktok.com/@Dulce.Mordida",
+            "https://www.google.com/maps/place/Dulce+Mordida/@-12.0869687,-76.9757827,17z"
+        ],
+        "hasMap": "https://www.google.com/maps/place/Dulce+Mordida/@-12.0869687,-76.9757827,17z",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+51954301376",
+            "contactType": "customer service",
+            "contactOption": "TollFree",
+            "availableLanguage": "Spanish"
+        }
+    }
+    </script>
+<!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C13V2271BY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-C13V2271BY');
+    </script>
+</head>
+<body>
+
+<!-- Pantalla de Bienvenida (Splash Screen) -->
+    <div id="splash-screen" onclick="cerrarSplash()">
+        <!-- Esta imagen se estirará por toda la pantalla de fondo -->
+        <img src="img/principal/fondo2.webp" alt="Fondo Dulce Mordida" class="splash-bg-image">
+        
+        <!-- Contenido que flota sobre la imagen -->
+        <div class="splash-content">
+            <h1 class="splash-text">¡Bienvenido!</h1>
+        </div>
+    </div>
+
+<!-- Barra de anuncio -->
+    <div class="top-announcement-bar">
+        <span>✨ Próxima apertura · CC Puruchuco, Ate ✨</span>
+    </div>
+
+<!-- Contenido principal -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12 col-s-12 col-m-3 col-l-3">
+                <div include-html="partials/menu.html"></div> 
+            </div>
+
+            <div class="col-m-9 col-l-6">
+                <div include-html="partials/products.html"></div>
+            </div>
+
+            <div class="col-m-12 col-l-3">
+                <div include-html="partials/aside.html"></div>
+            </div>
+
+        </div>
+    </div>
+
+<!-- Sección de Preguntas Frecuentes (FAQ) -->
+
+    <div include-html="partials/faq.html"></div>
+
+<!-- Footer -->
+    <div include-html="partials/footer.html"></div>
+
+<!-- Scripts -->
+    <script src="js/include-html.js"></script> 
+    <script src="js/navegation.js"></script>  
+
+<!-- Botón flotante de WhatsApp -->
+    <a class="whatsapp-flotante" 
+        href="https://wa.me/51954301376?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20%F0%9F%8E%82" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        title="Contáctanos por WhatsApp">
+        <img src="img/iconos/whatsapp-brands-solid-full.svg" alt="WhatsApp" width="28"/> 
+    </a>
+
+</body>
+</html>
+
+<!-- 💡 Un truco de oro cuando subas tu web a internet:
+Tanto Instagram como Facebook guardan en su memoria ("caché") la primera versión que ven de una web. 
+Si en el futuro cambias esta foto o el texto y ves que en Instagram se sigue mostrando lo viejo, 
+solo debes entrar a una herramienta gratuita de Google llamada "Meta Sharing Debugger" 
+(Depurador de contenido compartido de Meta). Pegas tu link ahí, le das al botón “Depurar 
+/ Volver a extraer” y obligarás a Instagram a actualizar la imagen al instante. -->

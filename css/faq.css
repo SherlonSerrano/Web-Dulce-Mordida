@@ -1,0 +1,112 @@
+/* Estilos para la sección de Preguntas Frecuentes (FAQ) */
+.faq-seccion {
+    width: 100%;
+    background-color: #ffffff; /* Alternamos fondo blanco para contrastar con los testimonios crema */
+    padding: 50px 20px;
+    box-sizing: border-box;
+    clear: both;
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+/* Contenedor principal de la sección FAQ */
+.faq-container {
+    max-width: 800px; /* Más angosto para que sea cómodo de leer */
+    margin: 0 auto;
+}
+
+/* Encabezado de la sección FAQ */
+.faq-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* Estilos para el título y subtítulo del encabezado FAQ */
+.faq-header h2 {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    color: #704214; /* Tu tono moka */
+    font-size: 26px;
+    margin: 0 0 5px 0;
+}
+
+/* Estilos para el párrafo del encabezado FAQ */
+.faq-header p {
+    font-family: 'Newsreader';
+    font-weight: 400;
+    font-style: italic;
+    color: #888888;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Lista de preguntas frecuentes */
+.faq-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Cada ítem de pregunta frecuente */
+.faq-item {
+    background-color: #fdfbf7; /* Toque crema suave dentro de las cajas */
+    border: 1px solid rgba(112, 66, 20, 0.06);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* El botón de la pregunta */
+.faq-pregunta {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 18px 20px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    color: #704214;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+/* El ícono de la pregunta (el '+') */
+.faq-icono {
+    font-size: 18px;
+    color: #888888;
+    font-weight: bold;
+}
+
+/* La caja de la respuesta (Oculta por defecto) */
+.faq-respuesta {
+    font-family: 'Newsreader';
+    font-weight: 400;
+    font-style: italic;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: all 300ms ease; /* Transición limpia aceptada por tu VS Code */
+}
+
+/* Estilos para el texto de la respuesta */
+.faq-respuesta p {
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 18px 0;
+}
+
+/* 🟢 CLASES ACTIVAS (Se aplicarán con JavaScript al dar clic) */
+.faq-item.active .faq-respuesta {
+    max-height: 500px; /* Permite que se despliegue hacia abajo */
+}
+
+.faq-item.active .faq-icono {
+    color: #704214;
+    transform: rotate(45deg); /* Hace que el '+' gire y se transforme en un '✕' */
+}

@@ -1,0 +1,220 @@
+/* Definición de fuentes personalizadas para el sitio web */
+@font-face {
+    font-family: 'BwGradual';
+    src: url('../fonts/BwGradualDEMO-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BwGradual';
+    src: url('../fonts/BwGradualDEMO-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BwGradual';
+    src: url('../fonts/BwGradualDEMO-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BwGradual';
+    src: url('../fonts/BwGradualDEMO-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('../fonts/Cormorant-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('../fonts/Cormorant-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('../fonts/Cormorant-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('../fonts/Cormorant-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('../fonts/Cormorant-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Duende';
+    src: url('../fonts/duende-light-pro.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Metal';
+    src: url('../fonts/Metal-Reg-1-Trial-BF674e740c5fe0a.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newsreader';
+    src: url('../fonts/Newsreader_9pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newsreader';
+    src: url('../fonts/Newsreader_9pt-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newsreader';
+    src: url('../fonts/Newsreader_9pt-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newsreader';
+    src: url('../fonts/Newsreader_9pt-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Aplicación de las fuentes a diferentes elementos del sitio */
+
+body {
+    font-family: 'BwGradual', 'Montserrat', 'Newsreader', Arial, sans-serif;
+    font-weight: 400;
+}
+
+/* Logo y nombre de marca */
+.logo,
+.logo img + span {
+    font-family: 'Cormorant', serif;
+    font-weight: 300;
+}
+
+/* Títulos de sección: TORTAS, BOWLS, etc. */
+.title-products {
+    font-family: 'Cormorant', serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Menú de navegación */
+#menu li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* Nombre de cada producto */
+.product-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+/* Precio */
+.product-box .price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+/* Modal de producto — nombre */
+.modal-producto-info h2 {
+    font-family: 'Montserrat', serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+/* Modal de producto — descripción */
+.modal-producto-info p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+/* Botones */
+button,
+.btn-whatsapp-producto,
+.btn-carrito-producto {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+/* Buscador y selects */
+.search-input,
+.select-order {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+/* Panel carrito y favoritos — títulos */
+#panel-carrito h3,
+#panel-favoritos h3 {
+    font-family: 'Montserrat', 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 20px;
+}

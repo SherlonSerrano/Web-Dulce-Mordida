@@ -1,0 +1,171 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-primary);
+    scroll-behavior: smooth;
+}
+
+a{
+    color: var(--color-primary-dark);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--color-gray);
+    text-decoration: underline;
+}
+
+.top-announcement-bar {
+    background-color: #704214; /* Color café/moka elegante */
+    color: #ffffff;            /* Texto blanco para alto contraste */
+    text-align: center;
+    padding: 8px 10px;
+    font-family: 'Newsreader';
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 1px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Animación sutil opcional para llamar la atención sin molestar */
+.top-announcement-bar span {
+    display: inline-block;
+    animation: deStella 2s infinite ease-in-out;
+}
+
+@keyframes deStella {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+/* Contenedor principal fijo */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    
+    /* ⚡ CAMBIOS AQUÍ: Alineamos el contenido abajo con un margen de seguridad */
+    align-items: center;      /* ← era flex-end */
+    padding-top: 360px;    /* ← empuja el texto hacia abajo del logo */
+    padding-bottom: 0;        /* ← era 80px */
+    box-sizing: border-box;   /* Evita que el padding altere el tamaño completo */
+    
+    z-index: 999999;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    cursor: pointer;
+    background-color: #000000;
+}
+
+/* Efecto de desaparición */
+#splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ⚡ LA MAGIA: Imagen de fondo completo con mínima transparencia */
+.splash-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Cubre toda la pantalla sin deformarse */
+    object-position: center; /* Centra la atención de la foto */
+    opacity: 0.95;       /* Mínima transparencia (5%) para que la web se intuya sutilmente por detrás */
+    z-index: 1;
+}
+
+/* Capa del texto por encima de la foto */
+.splash-content {
+    position: relative;
+    z-index: 2; /* Se posiciona por encima de la imagen de fondo */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo de la frase de bienvenida */
+.splash-text {
+    font-size: 70px;       /* Más grande e imponente */
+    color: #ffffff;        /* Texto blanco para que resalte sobre la foto */
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin: 0;
+    font-family: 'Newsreader', serif;    /* Usa la tipografía elegante de tu marca */
+    font-style: italic;      /* Un toque de sofisticación */
+    /* Sombra paralela suave para garantizar que el texto se lea sin importar el color de tu foto */
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); 
+}
+
+/* Ajuste optimizado para pantallas de celulares */
+@media (max-width: 768px) {
+    .splash-text {
+        font-size: 32px; /* Un poco más pequeño en móviles para que no rompa línea */
+    }
+    
+    .splash-bg-image {
+        object-fit: contain; /* ← cambia de cover a contain */
+        background-color: #6F060A; /* ← rellena los bordes con tu color borgoña */
+    }
+}
+
+/* Burbuja de texto de WhatsApp */
+.wa-notification-bubble {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    position: fixed;
+    bottom: 32px; /* Ajusta esto para que quede alineado a la mitad de tu botón */ /* (56px alto del botón / 2) - (altura aprox burbuja / 2) ≈ 32px */
+    left: 90px;  /* Se posiciona justo a la derecha del botón flotante */
+    background-color: #ffffff;
+    color: #333333; 
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+/* Triangulito de la burbuja de diálogo */
+.wa-notification-bubble::after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 6px 6px 0;
+    border-style: solid;
+    border-color: transparent #ffffff transparent transparent;
+}
+
+/* Clase para mostrar la burbuja con animación */
+.wa-notification-bubble.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Ocultar en pantallas muy pequeñas si estorba con el diseño */
+@media (max-width: 480px) {
+    .wa-notification-bubble {
+        font-size: 11px;
+        padding: 8px 12px;
+        right: 80px;
+    }
+}

@@ -1,0 +1,387 @@
+/* Estilo para el título de la sección de productos */
+.title-products{ 
+    font-size: 40px;
+    font-weight: lighter;
+    text-align: center;
+    margin: 20px 0 30px 0;
+}
+
+/* Estilo para el select de ordenamiento */
+.select-order{ 
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 12px;
+    font-style: normal;
+    float: right;
+    padding: 10px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background-color: var(--color-primary);
+}
+
+/* Estilos para cada producto */
+.product-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    position: relative; 
+    color: #000000;
+    opacity: 0; /* ← invisible por defecto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Efecto de elevación al pasar el mouse por encima de cada producto */
+.product-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    text-decoration: none;
+}
+
+/* Estilos para la imagen de cada producto */
+.product-box img {
+    border-radius: 6px;
+    width: 100% !important;
+    height: auto !important; 
+    aspect-ratio: 1 / 1 !important; /* 🌟 Obliga a la imagen a mantener una forma de cuadrado perfecto (1:1) */
+    object-fit: cover; /* Recorta suavemente los excesos de las fotos disparejas */
+    transition: all 0.3s;
+}
+
+/* Efecto de zoom al pasar el mouse por encima de la imagen del producto */
+.product-box:hover img{ 
+    transform: scale(1.05);
+}
+
+/* Estilos para el título de cada producto */
+.product-box h3 {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin: 5px;
+    white-space: normal;      /* ← permite salto de línea */
+    overflow: visible;        /* ← muestra todo el texto */
+    flex: 1;
+    display: flex;
+    align-items: center;      /* centra el texto verticalmente */
+    justify-content: center;  /* centra el texto horizontalmente */
+    min-height: 40px;         /* altura mínima para los nombres cortos */
+}
+
+/* Estilo para la etiqueta de oferta en los productos */
+.product-box .offer{ 
+    color: red;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Estilo para ocultar la etiqueta de oferta en los productos que no están en oferta */
+.product-box .offer.hidden{ 
+    visibility: hidden;
+}
+
+/* Estilo para el precio de cada producto */
+.product-box .price{ 
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 22px;
+    font-style: normal;
+}
+
+/* Estilo para el precio original de los productos en oferta */
+.product-box strong del{ 
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+/* Solución al espacio entre filas */
+#productos-tortas,
+#productos-bocaditos,
+#productos-bowls,
+#productos-minisandwiches,
+#productos-tematicas,
+#productos-postres,
+#productos-diamadre,
+#productos-navidad {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* Estilos para la paginación */
+.pagination{
+    font-family: 'Montserrat';
+    font-weight: 400;
+    text-align: center;
+    list-style: none;
+    font-size: 18px;
+}
+
+/* Estilo para cada elemento de la paginación */
+.pagination li{ 
+    display: inline-block;
+}
+
+/* Estilo para los enlaces de la paginación */
+.pagination li a{ 
+    color: black;
+    padding: 5px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Estilo para el enlace activo de la paginación */
+.pagination li a.active{ 
+    border: 1px solid black;
+}
+
+/* Estilos para el modal de producto */
+.modal-producto-inner {
+    background: white;
+    max-width: 600px; /* ancho máximo del modal */
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-producto-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Estilos para el slider de fotos del producto */
+.slider-container {
+    position: relative;
+    background: #f5f5f5;
+}
+
+/* Contenedor del slider de fotos del producto */
+.slider-fotos {
+    display: flex;
+    overflow: hidden;
+}
+
+/* Estilos para las imágenes del slider de fotos del producto */
+.slider-fotos img {
+    min-width: 100%;
+    height: 400px; /* ← más altura */
+    object-fit: contain; /* ← muestra la imagen completa sin recortar */
+    background: #f5f5f5; /* ← fondo gris para los espacios vacíos */
+    transition: transform 0.4s ease;
+}
+
+/* Estilos para las flechas de navegación del slider de fotos del producto */
+.slider-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    font-size: 32px;
+    padding: 8px 14px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.slider-flecha:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.slider-prev { left: 8px; }
+.slider-next { right: 8px; }
+
+/* Estilos para los puntos de navegación del slider de fotos del producto */
+.slider-puntos {
+    text-align: center;
+    padding: 10px 0 4px;
+}
+
+.slider-punto {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.slider-punto.activo {
+    background: var(--color-primary-dark);
+}
+
+/* Estilos para la información y botones del modal de producto */
+.modal-producto-info {
+    padding: 20px 24px 24px;
+}
+
+.modal-producto-info h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 0 0 10px;
+}
+
+.modal-producto-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 12px;
+    line-height: 1.6;
+}
+
+.modal-producto-precio {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 22px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.modal-producto-botones {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-whatsapp-producto {
+    flex: 1;
+    padding: 12px;
+    background: #25D366;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    transition: opacity 0.2s;
+}
+
+.btn-whatsapp-producto:hover {
+    opacity: 0.9;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-carrito-producto {
+    flex: 1;
+    padding: 12px;
+    background: var(--color-primary-dark);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-carrito-producto:hover {
+    opacity: 0.9;
+}
+
+/* Estilos para el separador de sección en búsqueda */
+.separador-seccion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0 12px;
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.separador-seccion::before,
+.separador-seccion::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+
+/* Estilos para el botón de favorito en cada producto */
+.btn-favorito {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.product-box:hover .btn-favorito {
+    opacity: 1;
+}
+
+/* Siempre visible si ya es favorito */
+.product-box .btn-favorito.es-favorito {
+    opacity: 1;
+}
+
+/* Animación de aparición para los productos al cargar la página o cambiar de sección */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplica la animación a los productos visibles */
+.product-box.visible {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Estilo para el texto SEO de cada categoría de productos */
+.seo-category-text {
+    font-family: 'Newsreader';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666666; /* Un gris suave para que no sature */
+    max-width: 700px; /* Evita que el texto se estire demasiado en pantallas grandes */
+    margin: 10px auto 30px auto; /* Centra el bloque y le da aire antes de los productos */
+    text-align: center;
+    padding: 0 15px; /* Protección para pantallas de celulares */
+    font-weight: 400;
+}
+
+/* Rating de producto — "★ 4.8" */
+/* Se inyecta dinámicamente desde navegation.js después de la etiqueta h3 */
+/* Para cambiar tamaño: font-size | Para cambiar tono: color */
+.product-rating {
+    font-family: 'Newsreader';
+    font-style: italic;
+    font-size: 12px;
+    color: #999999;
+    margin: 2px 0 4px 0;
+}

@@ -1,0 +1,55 @@
+.nav-lateral {
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+#menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 16px;
+    text-align: center;
+}
+
+#menu li a {
+    display: block;
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+#menu li a.active {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .nav-lateral {
+        text-align: center;
+    }
+    .nav-lateral img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #menu {
+        text-align: left;
+    }
+}
+
+/* Estilos para el campo de búsqueda dentro del menú lateral */
+.search-input.global { 
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 12px;
+    font-style: normal;
+    display: block;
+    width: 100%;          /* ← ahora toma el ancho del nav-lateral */
+    padding: 8px 10px;
+    margin: 16px 0 8px 0;
+    border: 1px solid var(--color-gray);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+}

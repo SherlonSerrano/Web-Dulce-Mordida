@@ -1,0 +1,11 @@
+@import "colors.css";
+@import "fonts.css";
+@import "common.css";
+@import "grid.css";
+@import "menu.css";
+@import "products.css";
+@import "aside.css";
+@import "footer.css";
+@import "faq.css";
+
+/* @import "image-effects.css"; ← comentado hasta que tenga contenido */
