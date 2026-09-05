@@ -149,6 +149,9 @@ function cerrarReclamo() {
 window.addEventListener('click', function(e) {
     var modal = document.getElementById('modal-reclamo');
     if (e.target === modal) cerrarReclamo();
+
+    var modalLocales = document.getElementById('modal-locales'); // ← Modal de Locales
+    if (e.target === modalLocales) cerrarLocales();
 });
 
 function cerrarPopupCodigo() {
@@ -163,6 +166,71 @@ function copiarCodigoReclamo() {
         msg.style.display = 'block';
         setTimeout(function() { msg.style.display = 'none'; }, 3000);
     });
+}
+
+// Modal de Locales
+function abrirLocales() {
+    document.getElementById('modal-locales').style.display = 'block';
+}
+
+function cerrarLocales() {
+    document.getElementById('modal-locales').style.display = 'none';
+}
+
+// Slider de fotos por local (independiente para cada tarjeta)
+function inicializarSlidersLocales() {
+    document.querySelectorAll('.local-slider').forEach(function(slider) {
+        if (slider.dataset.inicializado) return; // evita reconstruir si ya se armó
+        slider.dataset.inicializado = 'true';
+        slider.dataset.index = 0;
+
+        var fotos = slider.querySelectorAll('.local-slider-fotos img');
+        var puntosContenedor = slider.querySelector('.local-slider-puntos');
+        var flechas = slider.querySelectorAll('.local-slider-flecha');
+
+        // Si el local solo tiene 1 foto, ocultamos flechas y puntos
+        if (fotos.length <= 1) {
+            flechas.forEach(function(f) { f.style.display = 'none'; });
+            if (puntosContenedor) puntosContenedor.style.display = 'none';
+            return;
+        }
+
+        puntosContenedor.innerHTML = '';
+        fotos.forEach(function(_, i) {
+            var punto = document.createElement('span');
+            punto.classList.add('local-slider-punto');
+            if (i === 0) punto.classList.add('activo');
+            punto.addEventListener('click', function() { irAFotoLocal(punto, i); });
+            puntosContenedor.appendChild(punto);
+        });
+    });
+}
+
+function actualizarSliderLocal(slider) {
+    var index = parseInt(slider.dataset.index) || 0;
+    var fotos = slider.querySelectorAll('.local-slider-fotos img');
+    fotos.forEach(function(img) {
+        img.style.transform = 'translateX(' + (-index * 100) + '%)';
+    });
+    var puntos = slider.querySelectorAll('.local-slider-punto');
+    puntos.forEach(function(p, i) {
+        p.classList.toggle('activo', i === index);
+    });
+}
+
+function cambiarFotoLocal(boton, direccion) {
+    var slider = boton.closest('.local-slider');
+    var fotos = slider.querySelectorAll('.local-slider-fotos img');
+    var index = parseInt(slider.dataset.index) || 0;
+    index = (index + direccion + fotos.length) % fotos.length;
+    slider.dataset.index = index;
+    actualizarSliderLocal(slider);
+}
+
+function irAFotoLocal(punto, index) {
+    var slider = punto.closest('.local-slider');
+    slider.dataset.index = index;
+    actualizarSliderLocal(slider);
 }
 
 // Maneja el envío del formulario de reclamos
@@ -756,6 +824,7 @@ includeHTML(function() {
     actualizarContadorFavoritos();
     renderCarrito();
     iniciarAnimacionProductos();
+    inicializarSlidersLocales();
 
 // Renderiza el rating debajo del nombre de cada producto
 // El valor viene de data-rating en cada .product-box de products.html

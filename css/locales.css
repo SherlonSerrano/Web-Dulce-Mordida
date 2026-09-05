@@ -1,0 +1,190 @@
+/* Estilos para el modal de "Nuestros Locales" */
+.modal-locales-inner {
+    background: var(--color-primary);
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 12px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px 24px 40px;
+    font-family: 'Montserrat';
+}
+
+.modal-locales-cerrar {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 10;
+    color: var(--color-primary-dark);
+}
+
+.modal-locales-titulo {
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-primary-dark);
+    font-size: 30px;
+    margin: 10px 0 4px;
+}
+
+.modal-locales-subtitulo {
+    font-family: 'Newsreader';
+    font-style: italic;
+    text-align: center;
+    color: #888888;
+    font-size: 14px;
+    margin: 0 0 30px;
+}
+
+.locales-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.local-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.local-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+/* Slider de fotos por local */
+.local-slider {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.local-slider-fotos {
+    display: flex;
+    height: 100%;
+}
+
+.local-slider-fotos img {
+    min-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.local-slider-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: #ffffff;
+    border: none;
+    font-size: 22px;
+    padding: 4px 10px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.local-slider-flecha:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.local-slider-prev { left: 8px; }
+.local-slider-next { right: 8px; }
+
+.local-slider-puntos {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+.local-slider-punto {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    margin: 0 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.local-slider-punto.activo {
+    background: #ffffff;
+}
+
+.local-info {
+    padding: 16px 18px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.local-info h3 {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+    margin: 0 0 8px;
+}
+
+.local-descripcion {
+    font-family: 'Newsreader';
+    font-style: italic;
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+.local-direccion,
+.local-horario {
+    font-size: 12.5px;
+    color: #555555;
+    margin: 0 0 6px;
+}
+
+.btn-maps-local {
+    margin-top: auto;
+    display: block;
+    text-align: center;
+    background: var(--color-primary-dark);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.btn-maps-local:hover {
+    opacity: 0.9;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .modal-locales-inner {
+        margin: 20px auto;
+        padding: 24px 16px 30px;
+    }
+}
